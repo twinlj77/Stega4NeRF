@@ -5,7 +5,7 @@ from net import Model, D
 # from model import Model, D
 from torch import nn
 
-path = r'D:\Stega4NeRF\data\test_view_rotate\rotate_phi-0.1.jpg'
+path = r'C:\Users\123\Desktop\Stega4NeRF\data\test_view_rotate\rotate_theta+5,phi-5.jpg'
 # path = r'E:\180extractor_classify\data\train\origin.jpg'
 
 # compose = transforms.Compose([
@@ -25,7 +25,7 @@ net = Model()
 net.eval()
 secret = torch.load('secret.pt')
 print(secret)
-state_dict = torch.load('modelD=1.pt')
+state_dict = torch.load('model.pt')
 net.load_state_dict(state_dict)
 out = net(img, model_type="010001")
 out  =  (out  >=  0.5).int()
